@@ -1,84 +1,100 @@
-
 <html>
- <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-D7EGJNCL4C"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-D7EGJNCL4C');
-</script>
-  
- <title>Title of the document</title>
- <style>
- #defaultBlock {
- display: table;
-
- }
- div {
- float: left;
- height: 400px;
- width: 600px;
- padding: 10px;
- }
- #block1 {
- background-color: #62DDD2;
- }
- #block2 {
- background-color: #62ABDD;
- width: 100px;
- }
- #block3 {
- background-color: #626DDD;
- width: 300px;
- }
- h2 {
- text-align: center;
- }
- </style>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title of the Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        #defaultBlock {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .block {
+            box-sizing: border-box;
+            padding: 10px;
+            margin: 10px;
+            height: 400px;
+            color: white;
+            text-align: center;
+        }
+        #block1 {
+            background-color: #62DDD2;
+            width: calc(33.333% - 42px);
+        }
+        #block2 {
+            background-color: #62ABDD;
+            width: calc(33.333% - 42px);
+        }
+        #block3 {
+            background-color: #626DDD;
+            width: calc(33.333% - 42px);
+        }
+        .link {
+            display: block;
+            margin: 10px 0;
+            color: white;
+            text-decoration: none;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.js"></script>
-    <script src="sketch.js"></script>
-
- </head>
- <body>
- <main id="defaultBlock">
- <h2>
-
-<audio controls autoplay>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-</h2>
- <div id="block1">
- <h2>Title 1</h2>
- <img align = "middle" = src="miku.jpg" width="300" height = "300">
-
- </div>
- <div id="block2">
- <h2>Title 2</h2>
-
-
-<FONT size="4" style ="font-family:.Andalé Mono">this is true music</FONT>
-<br> 
-🎧😑🎧
-<br> 
-󠀠󠀠 󠀠🤟👔🤟
-<br> 
-󠀠󠀠󠀠  󠀠󠀠󠀠 󠀠󠀠󠀠󠀠󠀠󠀠󠀠󠀠     󠀠󠀠󠀠󠀠󠀠󠀠󠀠󠀠󠀠󠀠󠀠󠀠󠀠 󠀠 󠀠󠀠 󠀠👖
-<br> 
-   󠀠 󠀠 󠀠󠀠󠀠󠀠󠀠󠀠󠀠👞 👞
- </div>
- <div id="block3">
- <h2>Title 3</h2>
- <a class="weatherwidget-io" href="https://forecast7.com/en/64d13n21d82/reykjavik/" data-label_1="REYKJAVÍK" data-label_2="WEATHER" data-theme="original" >REYKJAVÍK WEATHER</a>
+</head>
+<body>
+<main id="defaultBlock">
+    <h2>
+        <audio controls autoplay>
+            <source src="music.mp3" type="audio/mpeg">
+        </audio>
+    </h2>
+    <div id="block1" class="block">
+        <h2>Title 1</h2>
+        <img align="middle" src="miku.jpg" width="300" height="300" alt="Image">
+        <a href="https://example.com" class="link">External Link</a>
+        <a href="internal_page.html" class="link">Internal Link</a>
+    </div>
+    <div id="block2" class="block">
+        <h2>Title 2</h2>
+        <p style="font-size: 1.2em; font-family: 'Andalé Mono';">
+            This is true music
+        </p>
+        <br> 
+        🎧😑🎧
+        <br> 
+        🤟👔🤟
+        <br> 
+        👖
+        <br> 
+        👞👞
+    </div>
+    <div id="block3" class="block">
+        <h2>Title 3</h2>
+        <a class="weatherwidget-io" href="https://forecast7.com/en/64d13n21d82/reykjavik/" data-label_1="REYKJAVÍK" data-label_2="WEATHER" data-theme="original">REYKJAVÍK WEATHER</a>
+        <script>
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+        </script>
+        <div id="p5-sketch"></div>
+    </div>
+</main>
 <script>
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-</script>
- </div>
- </main>
- </body>
-</html>
+    // p5.js sketch
+    function setup() {
+        let canvas = createCanvas(300, 300);
+        canvas.parent('p5-sketch');
+        background(200);
+    }
 
+    function draw() {
+        fill(255, 0, 0);
+        ellipse(width / 2, height / 2, 100, 100);
+    }
+</script>
+</body>
+</html>
