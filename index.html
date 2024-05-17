@@ -51,7 +51,7 @@
 </head>
 <body>
   <div id="section1" class="section">
-    <audio id="myAudio" controls autoplay muted>
+    <audio id="myAudio" controls autoplay>
       <source src="music.mp3" type="audio/mpeg">
     </audio>
     <img src="miku.jpg" alt="Miku">
@@ -79,7 +79,7 @@
       textFont('Comic Sans MS');
       textSize(24);
       fill('#62ABDD');
-      noLoop(); // No need to repeatedly draw
+      noLoop();
     }
 
     function draw() {
