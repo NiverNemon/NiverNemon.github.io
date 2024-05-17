@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nyan Cat</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background-color: #008080; /* Teal background color */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+  </style>
+</head>
+<body>
+  <img src="nyancat.gif" alt="Nyan Cat">
+</body>
+</html>
