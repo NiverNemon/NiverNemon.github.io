@@ -1,100 +1,107 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title of the Document</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        #defaultBlock {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 20px;
-        }
-        .block {
-            box-sizing: border-box;
-            padding: 10px;
-            margin: 10px;
-            height: 400px;
-            color: white;
-            text-align: center;
-        }
-        #block1 {
-            background-color: #62DDD2;
-            width: calc(33.333% - 42px);
-        }
-        #block2 {
-            background-color: #62ABDD;
-            width: calc(33.333% - 42px);
-        }
-        #block3 {
-            background-color: #626DDD;
-            width: calc(33.333% - 42px);
-        }
-        .link {
-            display: block;
-            margin: 10px 0;
-            color: white;
-            text-decoration: none;
-        }
-        .link:hover {
-            text-decoration: underline;
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three Sections Background</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+    }
+    .section {
+      height: 100vh;
+      width: 33.33%;
+      float: left;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    #section1 {
+      background-color: #000000;
+    }
+    #section2 {
+      background-color: #000000;
+      position: relative;
+    }
+    #section3 {
+      background-color: #62DDD2;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    .widget-container {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .widget-container iframe {
+      width: 300px;
+      height: 100px;
+    }
+    #p5sketch {
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-<main id="defaultBlock">
-    <h2>
-        <audio controls autoplay>
-            <source src="music.mp3" type="audio/mpeg">
-        </audio>
-    </h2>
-    <div id="block1" class="block">
-        <h2>Title 1</h2>
-        <img align="middle" src="miku.jpg" width="300" height="300" alt="Image">
-        <a href="https://example.com" class="link">External Link</a>
-        <a href="internal_page.html" class="link">Internal Link</a>
+  <div id="section1" class="section">
+    <audio id="myAudio" controls autoplay muted>
+      <source src="music.mp3" type="audio/mpeg">
+    </audio>
+    <img src="miku.jpg" alt="Miku">
+  </div>
+  <div id="section2" class="section">
+    <div class="widget-container">
+      <iframe src="https://free.timeanddate.com/clock/i9dimfv8/n250/fn7/fs20/fc47dfd3/tc000/pct/ftbi/bls9/blc47dfd3/brs2/brt2/brc47dfd3/bts2/btc47dfd3/bbs2/bbc47dfd3/th2" frameborder="0" allowtransparency="true"></iframe>
     </div>
-    <div id="block2" class="block">
-        <h2>Title 2</h2>
-        <p style="font-size: 1.2em; font-family: 'Andalé Mono';">
-            This is true music
-        </p>
-        <br> 
-        🎧😑🎧
-        <br> 
-        🤟👔🤟
-        <br> 
-        👖
-        <br> 
-        👞👞
-    </div>
-    <div id="block3" class="block">
-        <h2>Title 3</h2>
-        <a class="weatherwidget-io" href="https://forecast7.com/en/64d13n21d82/reykjavik/" data-label_1="REYKJAVÍK" data-label_2="WEATHER" data-theme="original">REYKJAVÍK WEATHER</a>
-        <script>
-            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-        </script>
-        <div id="p5-sketch"></div>
-    </div>
-</main>
-<script>
-    // p5.js sketch
+    <a href="https://mikuexpo.com/">
+      <img src="mikuexpo.jpg" alt="Miku Expo">
+    </a>
+    <div id="p5sketch"></div>
+  </div>
+  <div id="section3" class="section">
+    <!-- No content in section3 as per your current layout -->
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <script>
+    let birthDate = new Date('2007-08-31');
+
     function setup() {
-        let canvas = createCanvas(300, 300);
-        canvas.parent('p5-sketch');
-        background(200);
+      let canvas = createCanvas(400, 200);
+      canvas.parent('p5sketch');
+      textFont('Comic Sans MS');
+      textSize(24);
+      fill('#62ABDD');
+      noLoop(); // No need to repeatedly draw
     }
 
     function draw() {
-        fill(255, 0, 0);
-        ellipse(width / 2, height / 2, 100, 100);
+      clear();
+      let today = new Date();
+      let years = today.getFullYear() - birthDate.getFullYear();
+      let months = today.getMonth() - birthDate.getMonth();
+      let days = today.getDate() - birthDate.getDate();
+
+      if (days < 0) {
+        months--;
+        days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+      }
+
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      text(`Birthday: August 31, 2007`, 20, 50);
+      text(`Age: ${years} years, ${months} months, ${days} days`, 20, 100);
     }
-</script>
+  </script>
 </body>
 </html>
