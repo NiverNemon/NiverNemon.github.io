@@ -19,17 +19,16 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      position: relative; /* Added */
     }
     #section1 {
       background-color: #000000;
     }
     #section2 {
       background-color: #000000;
-      position: relative;
     }
     #section3 {
-      background-color: #25c0a1;
-      position: relative;
+      background-color: #000000;
     }
     img {
       max-width: 100%;
@@ -37,7 +36,7 @@
     }
     .widget-container {
       position: absolute;
-      top: 20px;
+      bottom: 0; /* Updated */
       left: 50%;
       transform: translateX(-50%);
     }
@@ -76,7 +75,6 @@
   </div>
   <div id="section3" class="section">
     <a href="https://nivernemon.github.io/whattt/" class="question-link">?</a>
-    <div id="ww_8f77ed73ba9b1" v='1.3' loc='id' a='{"t":"horizontal","lang":"en","sl_lpl":1,"ids":["wl1531"],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>More forecasts: <a href="https://oneweather.org/calgary/30_days/" id="ww_8f77ed73ba9b1_u" target="_blank">Weather Calgary 30 days</a></div><script async src="https://app2.weatherwidget.org/js/?id=ww_8f77ed73ba9b1"></script>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
