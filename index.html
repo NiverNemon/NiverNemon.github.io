@@ -30,20 +30,26 @@
     #section3 {
       background-color: #000000;
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     img {
       max-width: 100%;
       height: auto;
     }
     .widget-container {
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
+      position: relative;
+      width: 70%; /* Adjust the width as needed */
+      padding-bottom: 70%; /* Maintain aspect ratio */
     }
     .widget-container iframe {
-      width: 277px;
-      height: 33px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
     }
     #p5sketch {
       margin-top: 20px;
@@ -75,6 +81,9 @@
     <div id="p5sketch"></div>
   </div>
   <div id="section3" class="section">
+    <div class="widget-container">
+      <iframe src="https://free.timeanddate.com/clock/i9dkmjrp/n250/szw110/szh110/hocfff/hbw6/hfc62ddd2/cf100/hnce1ead6/hccfff/hcw2/hcd88/fan3/fas20/facfff/fdi70/mqcfff/mqs3/mql13/mqw4/mqd94/mhcfff/mhs3/mhl13/mhw4/mhd94/mmcfff/mml5/mmw1/mmd94/hwm2/hhcfff/hhs2/hhb18/hmcfff/hms2/hmb18/hmr7/hss1/hsl90/hsr5" frameborder="0" width="110" height="110"></iframe>
+    </div>
     <a href="https://nivernemon.github.io/whattt/" class="question-link">?</a>
   </div>
 
